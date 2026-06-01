@@ -20,21 +20,21 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ background: 'var(--surface-2)', borderBottom: '1px solid var(--border)' }}>
+      <section style={{ background: '#4EACEA', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
       <div className="c-wrap" style={{ paddingTop: 90, paddingBottom: 80 }}>
-        <div className="c-eyebrow" style={{ marginBottom: 24 }}>
-          <span className="c-eyebrow-line" /> Carpets &amp; flooring specialists
+        <div className="c-eyebrow" style={{ marginBottom: 24, color: '#fff' }}>
+          <span className="c-eyebrow-line" style={{ background: '#fff', opacity: 0.7 }} /> Carpets &amp; flooring specialists
         </div>
-        <h1 style={{ fontSize: 'clamp(44px, 7vw, 82px)', maxWidth: 880, marginBottom: 28 }}>
+        <h1 style={{ fontSize: 'clamp(44px, 7vw, 82px)', maxWidth: 880, marginBottom: 28, color: '#fff' }}>
           Beautiful floors,<br />
-          <span style={{ color: 'var(--accent-text)', fontStyle: 'italic' }}>fitted with care</span>.
+          <span style={{ color: '#2D247F', fontStyle: 'italic' }}>fitted with care</span>.
         </h1>
-        <p style={{ fontSize: 19, color: 'var(--text-2)', maxWidth: 560, lineHeight: 1.7, marginBottom: 40 }}>
+        <p style={{ fontSize: 19, color: 'rgba(255,255,255,0.92)', maxWidth: 560, lineHeight: 1.7, marginBottom: 40 }}>
           From plush wool twists to hard-wearing flooring, Carpets2Go brings quality and craftsmanship to every room. Browse our collections and request a free quote today.
         </p>
         <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
           <Link href="/collections" className="c-btn c-btn-primary">Explore collections</Link>
-          <Link href="/brochures" className="c-btn c-btn-ghost">View brochures</Link>
+          <Link href="/brochures" className="c-btn" style={{ background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.6)' }}>View brochures</Link>
         </div>
       </div>
       </section>
