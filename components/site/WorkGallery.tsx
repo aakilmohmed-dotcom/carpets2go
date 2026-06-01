@@ -5,10 +5,10 @@ type Work = { src: string; title: string; cat: string }
 
 const WORK: Work[] = [
   { src: '/images/tartan-staircase.jpg',     title: 'Tartan stair runner',     cat: 'Stairs' },
-  { src: '/images/vinyl-hallway.jpg',        title: 'Wood-effect vinyl hallway', cat: 'Vinyl' },
+  { src: '/images/vinyl-hallway.jpg',        title: 'Saxony plush staircase', cat: 'Carpet' },
   { src: '/images/laminate-living-room.jpg', title: 'Oak laminate living room', cat: 'Laminate' },
   { src: '/images/tartan-landing.jpg',       title: 'Tartan landing & hallway', cat: 'Carpet' },
-  { src: '/images/grass-garden.jpg',         title: 'Artificial grass garden',  cat: 'Artificial grass' },
+  { src: '/images/grass-garden.jpg',         title: 'Wood-effect laminate flooring', cat: 'Laminate' },
   { src: '/images/tartan-stairs.jpg',        title: 'Patterned stair carpet',   cat: 'Stairs' },
   { src: '/images/wood-kitchen.jpg',         title: 'Wood-effect kitchen floor', cat: 'Flooring' },
   { src: '/images/tartan-step-detail.jpg',   title: 'Bullnose step detail',     cat: 'Craftsmanship' },
