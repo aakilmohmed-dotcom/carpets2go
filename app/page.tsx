@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import BrandMarquee from '@/components/site/BrandMarquee'
+import WorkGallery from '@/components/site/WorkGallery'
 
 const COLLECTIONS = [
   { name: 'Wool Twist', tag: 'Premium', desc: 'Dense, durable and naturally luxurious underfoot. Our flagship wool range.' },
@@ -93,6 +94,20 @@ export default function Home() {
           </div>
         </div>
         <BrandMarquee />
+      </section>
+
+      {/* ── RECENT WORK GALLERY ── */}
+      <section className="c-wrap c-section">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 16, marginBottom: 44 }}>
+          <div>
+            <div className="c-eyebrow" style={{ marginBottom: 14 }}><span className="c-eyebrow-line" /> Our recent work</div>
+            <h2 style={{ fontSize: 'clamp(32px, 4.5vw, 46px)', maxWidth: 520 }}>Carpets &amp; flooring fitted across Greater Manchester</h2>
+          </div>
+          <p style={{ fontSize: 15, color: 'var(--text-2)', maxWidth: 300, lineHeight: 1.7 }}>
+            A selection of real installations by our team. Click any image to view it larger.
+          </p>
+        </div>
+        <WorkGallery />
       </section>
 
       {/* ── WHY US ── */}
