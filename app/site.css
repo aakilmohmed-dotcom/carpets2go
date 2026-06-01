@@ -18,19 +18,19 @@
 
 /* ── LIGHT (default) ── */
 .site[data-theme="light"] {
-  --bg: #F2F8FD;
+  --bg: #FBFBF9;
   --bg-2: #FFFFFF;
   --surface: #FFFFFF;
-  --surface-2: #E4F1FB;
-  --field: #EAF4FC;
-  --border: rgba(45,36,127,0.12);
-  --border-2: rgba(45,36,127,0.20);
+  --surface-2: #F6F6F3;
+  --field: #F6F6F3;
+  --border: rgba(45,36,127,0.10);
+  --border-2: rgba(45,36,127,0.16);
   --text-1: #2D247F;
-  --text-2: rgba(45,36,127,0.74);
-  --text-3: rgba(45,36,127,0.52);
+  --text-2: rgba(45,36,127,0.70);
+  --text-3: rgba(45,36,127,0.48);
   --accent: #4EACEA;
   --accent-deep: #2E8FD0;
-  --accent-text: #2D247F;
+  --accent-text: #2E8FD0;
   --action: #CE2D20;
 }
 
@@ -88,7 +88,7 @@ html { scroll-behavior: smooth; }
   text-transform: uppercase; color: var(--accent-text);
   font-family: var(--c-sans);
 }
-.c-eyebrow-line { width: 28px; height: 1px; background: var(--accent); opacity: 0.5; }
+.c-eyebrow-line { width: 36px; height: 1.5px; background: var(--accent); opacity: 0.9; }
 
 /* ── NAV ── */
 .c-nav {
@@ -143,7 +143,7 @@ html { scroll-behavior: smooth; }
   border-radius: 9px; cursor: pointer; transition: all 160ms;
   font-family: var(--c-sans);
 }
-.c-btn-primary { background: var(--action); color: #fff; border: 1px solid var(--action); }
+.c-btn-primary { background: var(--action); color: #fff; border: 1px solid var(--action); box-shadow: 0 1px 2px rgba(206,45,32,0.20); }
 .c-btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
 .c-btn-ghost { background: transparent; color: var(--text-1); border: 1px solid var(--border-2); }
 .c-btn-ghost:hover { border-color: var(--accent); color: var(--accent-text); }
@@ -154,7 +154,7 @@ html { scroll-behavior: smooth; }
   border-radius: 16px; padding: 30px;
   transition: border-color 220ms, transform 220ms;
 }
-.c-card:hover { border-color: var(--border-2); transform: translateY(-3px); }
+.c-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(45,36,127,0.06); }
 
 /* ── FOOTER ── */
 .c-footer { border-top: 1px solid var(--border); padding: 56px 0 40px; margin-top: 40px; }

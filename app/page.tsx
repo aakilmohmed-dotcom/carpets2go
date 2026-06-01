@@ -20,23 +20,34 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <section style={{ background: '#4EACEA', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-      <div className="c-wrap" style={{ paddingTop: 90, paddingBottom: 80 }}>
-        <div className="c-eyebrow" style={{ marginBottom: 24, color: '#fff' }}>
-          <span className="c-eyebrow-line" style={{ background: '#fff', opacity: 0.7 }} /> Carpets &amp; flooring specialists
+      <section className="c-wrap" style={{ paddingTop: 96, paddingBottom: 88 }}>
+        <div className="c-eyebrow" style={{ marginBottom: 26 }}>
+          <span className="c-eyebrow-line" /> Carpets &amp; flooring specialists &middot; Bolton
         </div>
-        <h1 style={{ fontSize: 'clamp(44px, 7vw, 82px)', maxWidth: 880, marginBottom: 28, color: '#fff' }}>
+        <h1 style={{ fontSize: 'clamp(46px, 7vw, 88px)', maxWidth: 900, marginBottom: 30, lineHeight: 1.08 }}>
           Beautiful floors,<br />
-          <span style={{ color: '#2D247F', fontStyle: 'italic' }}>fitted with care</span>.
+          <span style={{ fontStyle: 'italic', color: 'var(--text-2)' }}>fitted with care</span>.
         </h1>
-        <p style={{ fontSize: 19, color: 'rgba(255,255,255,0.92)', maxWidth: 560, lineHeight: 1.7, marginBottom: 40 }}>
-          From plush wool twists to hard-wearing flooring, Carpets2Go brings quality and craftsmanship to every room. Browse our collections and request a free quote today.
+        <p style={{ fontSize: 19, color: 'var(--text-2)', maxWidth: 540, lineHeight: 1.75, marginBottom: 42 }}>
+          From plush wool twists to hard-wearing flooring, Carpets2Go brings quality and craftsmanship to every room across Bolton and Greater Manchester.
         </p>
         <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
           <Link href="/collections" className="c-btn c-btn-primary">Explore collections</Link>
-          <Link href="/brochures" className="c-btn" style={{ background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.6)' }}>View brochures</Link>
+          <Link href="/brochures" className="c-btn c-btn-ghost">View brochures</Link>
         </div>
-      </div>
+
+        <div style={{ marginTop: 64, paddingTop: 30, borderTop: '1px solid var(--border)', display: 'flex', gap: 48, flexWrap: 'wrap' }}>
+          {[
+            ['Free', 'home visits & quotes'],
+            ['Expert', 'measuring & fitting'],
+            ['Bolton', 'Wigan & Manchester'],
+          ].map(([big, small]) => (
+            <div key={big}>
+              <div style={{ fontFamily: 'var(--c-serif)', fontSize: 30, color: 'var(--text-1)', lineHeight: 1 }}>{big}</div>
+              <div style={{ fontSize: 13, color: 'var(--text-3)', marginTop: 6 }}>{small}</div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* ── FEATURED COLLECTIONS ── */}
