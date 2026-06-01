@@ -18,7 +18,7 @@ export default function SiteNav({ theme, onToggleTheme }: { theme: 'dark' | 'lig
     <>
       <nav className="c-nav">
         <Link href="/" className="c-nav-logo">
-          Carpets<span style={{ color: 'var(--accent-text)' }}>2</span>Go
+          <span style={{ color: 'var(--text-1)' }}>Carpets</span><span style={{ color: 'var(--action)' }}>2Go</span>
         </Link>
 
         <div className="c-nav-links">

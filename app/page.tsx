@@ -20,7 +20,8 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="c-wrap" style={{ paddingTop: 90, paddingBottom: 80 }}>
+      <section style={{ background: 'var(--surface-2)', borderBottom: '1px solid var(--border)' }}>
+      <div className="c-wrap" style={{ paddingTop: 90, paddingBottom: 80 }}>
         <div className="c-eyebrow" style={{ marginBottom: 24 }}>
           <span className="c-eyebrow-line" /> Carpets &amp; flooring specialists
         </div>
@@ -35,6 +36,7 @@ export default function Home() {
           <Link href="/collections" className="c-btn c-btn-primary">Explore collections</Link>
           <Link href="/brochures" className="c-btn c-btn-ghost">View brochures</Link>
         </div>
+      </div>
       </section>
 
       {/* ── FEATURED COLLECTIONS ── */}
