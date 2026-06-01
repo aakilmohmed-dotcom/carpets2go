@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BrandMarquee from '@/components/site/BrandMarquee'
 
 const COLLECTIONS = [
   { name: 'Wool Twist', tag: 'Premium', desc: 'Dense, durable and naturally luxurious underfoot. Our flagship wool range.' },
@@ -82,6 +83,16 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* ── BRANDS WE STOCK ── */}
+      <section style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '54px 0' }}>
+        <div className="c-wrap" style={{ textAlign: 'center', marginBottom: 30 }}>
+          <div className="c-eyebrow" style={{ justifyContent: 'center' }}>
+            <span className="c-eyebrow-line" /> Brands we stock <span className="c-eyebrow-line" />
+          </div>
+        </div>
+        <BrandMarquee />
       </section>
 
       {/* ── WHY US ── */}
