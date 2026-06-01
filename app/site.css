@@ -9,10 +9,11 @@
   --c-serif: 'Cormorant Garamond', Georgia, serif;
   --c-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --c-navy: #1B2A4A;
-  --c-red: #B23A48;
-  --c-red-soft: rgba(178,58,72,0.08);
-  --c-red-border: rgba(178,58,72,0.20);
+  --c-navy: #2D247F;
+  --c-blue: #4EACEA;
+  --c-red: #CE2D20;
+  --c-red-soft: rgba(206,45,32,0.08);
+  --c-red-border: rgba(206,45,32,0.22);
 }
 
 /* ── LIGHT (default) ── */
@@ -21,28 +22,28 @@
   --bg-2: #FFFFFF;
   --surface: #FFFFFF;
   --surface-2: #F4F1EC;
-  --border: rgba(27,42,74,0.10);
-  --border-2: rgba(27,42,74,0.16);
-  --text-1: #1B2A4A;
-  --text-2: rgba(27,42,74,0.72);
-  --text-3: rgba(27,42,74,0.50);
-  --accent: #B23A48;
-  --accent-text: #B23A48;
+  --border: rgba(45,36,127,0.10);
+  --border-2: rgba(45,36,127,0.16);
+  --text-1: #2D247F;
+  --text-2: rgba(45,36,127,0.72);
+  --text-3: rgba(45,36,127,0.50);
+  --accent: #CE2D20;
+  --accent-text: #CE2D20;
 }
 
 /* ── DARK ── */
 .site[data-theme="dark"] {
-  --bg: #0E1626;
-  --bg-2: #131D31;
-  --surface: #16213A;
-  --surface-2: #1B2A4A;
+  --bg: #0C0A1F;
+  --bg-2: #141031;
+  --surface: #18133B;
+  --surface-2: #221B52;
   --border: rgba(255,255,255,0.09);
   --border-2: rgba(255,255,255,0.16);
-  --text-1: #F5F2EC;
-  --text-2: rgba(245,242,236,0.74);
-  --text-3: rgba(245,242,236,0.50);
-  --accent: #D96A78;
-  --accent-text: #E08A95;
+  --text-1: #F2F2F8;
+  --text-2: rgba(242,242,248,0.74);
+  --text-3: rgba(242,242,248,0.50);
+  --accent: #E8554A;
+  --accent-text: #F07268;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }

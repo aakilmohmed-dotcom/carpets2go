@@ -26,8 +26,8 @@ export default function SiteFooter() {
           <div>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-3)', marginBottom: 16 }}>Get in touch</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-              <a href="tel:+440000000000" style={{ fontSize: 14, color: 'var(--text-2)' }}>Call us</a>
-              <a href="mailto:hello@carpets2go.co.uk" style={{ fontSize: 14, color: 'var(--text-2)' }}>hello@carpets2go.co.uk</a>
+              <a href="tel:+441204775930" style={{ fontSize: 14, color: 'var(--text-2)' }}>01204 775 930</a>
+              <a href="mailto:info@carpets2go.uk.com" style={{ fontSize: 14, color: 'var(--text-2)' }}>info@carpets2go.uk.com</a>
             </div>
           </div>
         </div>

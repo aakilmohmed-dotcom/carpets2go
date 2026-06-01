@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 
-const EMAIL = 'hello@carpets2go.co.uk'
+const EMAIL = 'info@carpets2go.uk.com'
 
 export default function Contact() {
   const [name, setName] = useState('')
@@ -34,7 +34,7 @@ export default function Contact() {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <a href={`mailto:${EMAIL}`} style={{ fontSize: 15, color: 'var(--text-1)', fontWeight: 500 }}>{EMAIL}</a>
-            <a href="tel:+440000000000" style={{ fontSize: 15, color: 'var(--text-1)', fontWeight: 500 }}>Call us today</a>
+            <a href="tel:+441204775930" style={{ fontSize: 15, color: 'var(--text-1)', fontWeight: 500 }}>01204 775 930</a>
           </div>
         </div>
 
