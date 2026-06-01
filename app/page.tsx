@@ -3,12 +3,12 @@ import BrandMarquee from '@/components/site/BrandMarquee'
 import WorkGallery from '@/components/site/WorkGallery'
 
 const COLLECTIONS = [
-  { name: 'Wool Twist', tag: 'Premium', img: '', desc: 'Dense, durable and naturally luxurious underfoot. Our flagship wool range.' },
-  { name: 'Saxony Plush', tag: 'Luxury', img: '', desc: 'Deep-pile softness with an elegant, even finish for living spaces.' },
-  { name: 'Loop & Berber', tag: 'Hard-wearing', img: '', desc: 'Tight-loop construction built to last in halls, stairs and busy rooms.' },
-  { name: 'Patterned', tag: 'Statement', img: '/images/tartan-landing.jpg', desc: 'Bold and subtle patterns to anchor a room with character.' },
-  { name: 'Vinyl & LVT', tag: 'Flooring', img: '/images/vinyl-hallway.jpg', desc: 'Wood and stone effect flooring — waterproof, warm and timeless.' },
-  { name: 'Stair Runners', tag: 'Bespoke', img: '/images/tartan-staircase.jpg', desc: 'Made-to-measure runners fitted with precision and care.' },
+  { name: 'Wool Twist', tag: 'Premium', desc: 'Dense, durable and naturally luxurious underfoot. Our flagship wool range.' },
+  { name: 'Saxony Plush', tag: 'Luxury', desc: 'Deep-pile softness with an elegant, even finish for living spaces.' },
+  { name: 'Loop & Berber', tag: 'Hard-wearing', desc: 'Tight-loop construction built to last in halls, stairs and busy rooms.' },
+  { name: 'Patterned', tag: 'Statement', desc: 'Bold and subtle patterns to anchor a room with character.' },
+  { name: 'Vinyl & LVT', tag: 'Flooring', desc: 'Wood and stone effect flooring — waterproof, warm and timeless.' },
+  { name: 'Stair Runners', tag: 'Bespoke', desc: 'Made-to-measure runners fitted with precision and care.' },
 ]
 
 const REASONS = [
@@ -65,20 +65,14 @@ export default function Home() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
           {COLLECTIONS.map(c => (
             <div key={c.name} className="c-card" style={{ display: 'flex', flexDirection: 'column' }}>
-              {c.img ? (
-                <div style={{ height: 180, borderRadius: 11, marginBottom: 22, overflow: 'hidden', border: '1px solid var(--border)' }}>
-                  <img src={c.img} alt={c.name} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                </div>
-              ) : (
-                <div style={{
-                  height: 180, borderRadius: 11, marginBottom: 22,
-                  background: 'linear-gradient(135deg, var(--surface-2) 0%, var(--bg-2) 100%)',
-                  border: '1px solid var(--border)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
-                  <span style={{ fontFamily: 'var(--c-serif)', fontSize: 28, color: 'var(--text-3)', fontStyle: 'italic' }}>{c.name}</span>
-                </div>
-              )}
+              <div style={{
+                height: 150, borderRadius: 11, marginBottom: 22,
+                background: 'linear-gradient(135deg, var(--surface-2) 0%, var(--bg-2) 100%)',
+                border: '1px solid var(--border)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <span style={{ fontFamily: 'var(--c-serif)', fontSize: 30, color: 'var(--text-3)', fontStyle: 'italic' }}>{c.name}</span>
+              </div>
               <span style={{
                 alignSelf: 'flex-start', fontSize: 11, fontWeight: 700, letterSpacing: '0.06em',
                 textTransform: 'uppercase', color: 'var(--accent-text)',
