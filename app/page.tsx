@@ -4,10 +4,10 @@ import WorkGallery from '@/components/site/WorkGallery'
 
 const COLLECTIONS = [
   { name: 'Wool Twist', tag: 'Premium', img: '', desc: 'Dense, durable and naturally luxurious underfoot. Our flagship wool range.' },
-  { name: 'Saxony Plush', tag: 'Luxury', img: '', desc: 'Deep-pile softness with an elegant, even finish for living spaces.' },
+  { name: 'Saxony Plush', tag: 'Luxury', img: '/images/vinyl-hallway.jpg', desc: 'Deep-pile softness with an elegant, even finish for living spaces.' },
   { name: 'Loop & Berber', tag: 'Hard-wearing', img: '', desc: 'Tight-loop construction built to last in halls, stairs and busy rooms.' },
   { name: 'Patterned', tag: 'Statement', img: '/images/tartan-landing.jpg', desc: 'Bold and subtle patterns to anchor a room with character.' },
-  { name: 'Vinyl & LVT', tag: 'Flooring', img: '/images/vinyl-hallway.jpg', desc: 'Wood and stone effect flooring — waterproof, warm and timeless.' },
+  { name: 'Vinyl & LVT', tag: 'Flooring', img: '', desc: 'Wood and stone effect flooring — waterproof, warm and timeless.' },
   { name: 'Stair Runners', tag: 'Bespoke', img: '/images/tartan-staircase.jpg', desc: 'Made-to-measure runners fitted with precision and care.' },
 ]
 
