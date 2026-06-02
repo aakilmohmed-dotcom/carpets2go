@@ -180,3 +180,8 @@ html { scroll-behavior: smooth; }
 @media (max-width: 860px) {
   .hero-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
 }
+
+/* ── Find Us: stack on mobile ── */
+@media (max-width: 860px) {
+  .findus-grid { grid-template-columns: 1fr !important; }
+}

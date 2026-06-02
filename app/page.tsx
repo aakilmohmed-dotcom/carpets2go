@@ -3,12 +3,12 @@ import BrandMarquee from '@/components/site/BrandMarquee'
 import WorkGallery from '@/components/site/WorkGallery'
 
 const COLLECTIONS = [
-  { name: 'Wool Twist', tag: 'Premium', img: '/images/wool-twist.jpg', desc: 'Dense, durable and naturally luxurious underfoot. Our flagship wool range.' },
-  { name: 'Saxony Plush', tag: 'Luxury', img: '/images/vinyl-hallway.jpg', desc: 'Deep-pile softness with an elegant, even finish for living spaces.' },
-  { name: 'Loop & Berber', tag: 'Hard-wearing', img: '/images/loop-berber.jpg', desc: 'Tight-loop construction built to last in halls, stairs and busy rooms.' },
-  { name: 'Patterned', tag: 'Statement', img: '/images/tartan-landing.jpg', desc: 'Bold and subtle patterns to anchor a room with character.' },
-  { name: 'Vinyl & LVT', tag: 'Flooring', img: '/images/lvt-flooring.jpg', desc: 'Wood and stone effect flooring — waterproof, warm and timeless.' },
-  { name: 'Stair Runners', tag: 'Bespoke', img: '/images/stair-runners.jpg', desc: 'Made-to-measure runners fitted with precision and care.' },
+  { name: 'Wool Twist', tag: 'Premium', img: '/images/collection-1.jpg', desc: 'Dense, durable and naturally luxurious underfoot. Our flagship wool range.' },
+  { name: 'Saxony Plush', tag: 'Luxury', img: '/images/collection-2.jpg', desc: 'Deep-pile softness with an elegant, even finish for living spaces.' },
+  { name: 'Loop & Berber', tag: 'Hard-wearing', img: '/images/collection-3.jpg', desc: 'Tight-loop construction built to last in halls, stairs and busy rooms.' },
+  { name: 'Patterned', tag: 'Statement', img: '/images/collection-4.jpg', desc: 'Bold and subtle patterns to anchor a room with character.' },
+  { name: 'Vinyl & LVT', tag: 'Flooring', img: '/images/collection-5.jpg', desc: 'Wood and stone effect flooring — waterproof, warm and timeless.' },
+  { name: 'Stair Runners', tag: 'Bespoke', img: '/images/collection-6.jpg', desc: 'Made-to-measure runners fitted with precision and care.' },
 ]
 
 const REASONS = [
@@ -34,7 +34,7 @@ export default function Home() {
           From plush wool twists to hard-wearing flooring, Carpets2Go brings quality and craftsmanship to every room across Bolton and Greater Manchester.
         </p>
         <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-          <Link href="/collections" className="c-btn c-btn-primary">Explore collections</Link>
+          <a href="#find-us" className="c-btn c-btn-primary">Find us now</a>
           <Link href="/brochures" className="c-btn c-btn-ghost">View brochures</Link>
         </div>
 
@@ -74,7 +74,7 @@ export default function Home() {
             <div className="c-eyebrow" style={{ marginBottom: 14 }}><span className="c-eyebrow-line" /> Our ranges</div>
             <h2 style={{ fontSize: 'clamp(32px, 4.5vw, 46px)' }}>Collections for every room</h2>
           </div>
-          <Link href="/collections" style={{ fontSize: 14, fontWeight: 600, color: 'var(--accent-text)' }}>View all →</Link>
+          
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
@@ -150,6 +150,41 @@ export default function Home() {
               <p style={{ fontSize: 14, color: 'var(--text-2)', lineHeight: 1.65 }}>{r.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── FIND US ── */}
+      <section id="find-us" className="c-wrap c-section">
+        <div className="c-eyebrow" style={{ marginBottom: 14 }}><span className="c-eyebrow-line" /> Find us</div>
+        <h2 style={{ fontSize: 'clamp(32px, 4.5vw, 46px)', maxWidth: 600, marginBottom: 40 }}>
+          Visit our Bolton showroom
+        </h2>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.6fr)', gap: 32, alignItems: 'stretch' }} className="findus-grid">
+          {/* Details */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 22, justifyContent: 'center' }}>
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 8 }}>Address</div>
+              <div style={{ fontSize: 17, color: 'var(--text-1)', lineHeight: 1.6, fontWeight: 500 }}>
+                Unit 1, Manchester Rd<br />Bolton, BL3 2ND
+              </div>
+            </div>
+            <div>
+              <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 8 }}>Call us</div>
+              <a href="tel:+441204775930" style={{ fontSize: 17, color: 'var(--text-1)', fontWeight: 500 }}>01204 775 930</a>
+            </div>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Carpets2Go,+Unit+1,+Manchester+Rd,+Bolton+BL3+2ND" target="_blank" rel="noopener noreferrer" className="c-btn c-btn-primary" style={{ alignSelf: 'flex-start', marginTop: 6 }}>Get directions</a>
+          </div>
+
+          {/* Map */}
+          <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', minHeight: 380 }}>
+            <iframe
+              title="Carpets2Go location"
+              src="https://www.google.com/maps?q=Carpets2Go,+Unit+1,+Manchester+Rd,+Bolton+BL3+2ND&output=embed"
+              width="100%" height="100%" style={{ border: 0, display: 'block', minHeight: 380 }}
+              loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
       </section>
 

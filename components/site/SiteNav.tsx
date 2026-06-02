@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 const LINKS = [
-  { href: '/collections', label: 'Collections' },
   { href: '/brochures',   label: 'Brochures'   },
   { href: '/about',       label: 'About'       },
   { href: '/contact',     label: 'Contact'     },
