@@ -22,30 +22,50 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="c-wrap" style={{ paddingTop: 96, paddingBottom: 88 }}>
-        <div className="c-eyebrow" style={{ marginBottom: 26 }}>
-          <span className="c-eyebrow-line" /> Carpets &amp; flooring specialists &middot; Bolton
-        </div>
-        <h1 style={{ fontSize: 'clamp(46px, 7vw, 88px)', maxWidth: 900, marginBottom: 30, lineHeight: 1.08 }}>
-          Beautiful floors,<br />
-          <span style={{ fontStyle: 'italic', color: 'var(--text-2)' }}>fitted with care</span>.
-        </h1>
-        <p style={{ fontSize: 19, color: 'var(--text-2)', maxWidth: 540, lineHeight: 1.75, marginBottom: 42 }}>
-          From plush wool twists to hard-wearing flooring, Carpets2Go brings quality and craftsmanship to every room across Bolton and Greater Manchester.
-        </p>
-        <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-          <Link href="/collections" className="c-btn c-btn-primary">Explore collections</Link>
-          <Link href="/brochures" className="c-btn c-btn-ghost">View brochures</Link>
+      <section className="c-wrap" style={{ paddingTop: 72, paddingBottom: 80 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.05fr)', gap: 56, alignItems: 'center' }} className="hero-grid">
+          {/* Left — message + action */}
+          <div>
+            <div className="c-eyebrow" style={{ marginBottom: 24 }}>
+              <span className="c-eyebrow-line" /> Carpets &amp; flooring &middot; Bolton
+            </div>
+            <h1 style={{ fontSize: 'clamp(40px, 5vw, 64px)', marginBottom: 22, lineHeight: 1.08 }}>
+              Quality flooring,<br />
+              <span style={{ fontStyle: 'italic', color: 'var(--accent-deep)' }}>measured &amp; fitted</span> for you.
+            </h1>
+            <p style={{ fontSize: 18, color: 'var(--text-2)', maxWidth: 460, lineHeight: 1.7, marginBottom: 34 }}>
+              Free home visits, samples to your door and expert fitting across Bolton, Wigan &amp; Greater Manchester. See the difference proper craftsmanship makes.
+            </p>
+            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
+              <Link href="/contact" className="c-btn c-btn-primary">Request your free quote</Link>
+              <a href="tel:+441204775930" className="c-btn c-btn-ghost">01204 775 930</a>
+            </div>
+          </div>
+
+          {/* Right — real-work image cluster (landscape shots only) */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: 'auto auto', gap: 14 }}>
+            <div style={{ gridColumn: '1 / 3', borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', aspectRatio: '16 / 9' }}>
+              <img src="/images/wood-kitchen.jpg" alt="Wood-effect flooring fitted in a kitchen" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', aspectRatio: '4 / 3' }}>
+              <img src="/images/tartan-landing.jpg" alt="Patterned carpet fitted on a landing" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', aspectRatio: '4 / 3' }}>
+              <img src="/images/tartan-step-detail.jpg" alt="Stair carpet bullnose detail" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+          </div>
         </div>
 
-        <div style={{ marginTop: 64, paddingTop: 30, borderTop: '1px solid var(--border)', display: 'flex', gap: 48, flexWrap: 'wrap' }}>
+        {/* Trust strip */}
+        <div style={{ marginTop: 56, paddingTop: 28, borderTop: '1px solid var(--border)', display: 'flex', gap: 48, flexWrap: 'wrap' }}>
           {[
             ['Free', 'home visits & quotes'],
             ['Expert', 'measuring & fitting'],
-            ['Bolton', 'Wigan & Manchester'],
+            ['Local', 'Bolton, Wigan & Manchester'],
+            ['Trusted', 'brands we stock'],
           ].map(([big, small]) => (
             <div key={big}>
-              <div style={{ fontFamily: 'var(--c-serif)', fontSize: 30, color: 'var(--text-1)', lineHeight: 1 }}>{big}</div>
+              <div style={{ fontFamily: 'var(--c-serif)', fontSize: 28, color: 'var(--text-1)', lineHeight: 1 }}>{big}</div>
               <div style={{ fontSize: 13, color: 'var(--text-3)', marginTop: 6 }}>{small}</div>
             </div>
           ))}

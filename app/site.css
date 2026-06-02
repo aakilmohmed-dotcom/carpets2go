@@ -168,3 +168,8 @@ html { scroll-behavior: smooth; }
   .c-section { padding: 72px 0; }
   .c-wrap { padding: 0 22px; }
 }
+
+/* ── Hero: stack on mobile ── */
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+}
