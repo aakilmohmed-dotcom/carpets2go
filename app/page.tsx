@@ -22,51 +22,46 @@ export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="c-wrap" style={{ paddingTop: 72, paddingBottom: 80 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.05fr)', gap: 56, alignItems: 'center' }} className="hero-grid">
-          {/* Left — message + action */}
-          <div>
-            <div className="c-eyebrow" style={{ marginBottom: 24 }}>
-              <span className="c-eyebrow-line" /> Carpets &amp; flooring &middot; Bolton
-            </div>
-            <h1 style={{ fontSize: 'clamp(40px, 5vw, 64px)', marginBottom: 22, lineHeight: 1.08 }}>
-              Quality flooring,<br />
-              <span style={{ fontStyle: 'italic', color: 'var(--accent-deep)' }}>measured &amp; fitted</span> for you.
-            </h1>
-            <p style={{ fontSize: 18, color: 'var(--text-2)', maxWidth: 460, lineHeight: 1.7, marginBottom: 34 }}>
-              Free home visits, samples to your door and expert fitting across Bolton, Wigan &amp; Greater Manchester. See the difference proper craftsmanship makes.
-            </p>
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
-              <Link href="/contact" className="c-btn c-btn-primary">Request your free quote</Link>
-              <a href="tel:+441204775930" className="c-btn c-btn-ghost">01204 775 930</a>
-            </div>
-          </div>
-
-          {/* Right — real-work image cluster (landscape shots only) */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridTemplateRows: 'auto auto', gap: 14 }}>
-            <div style={{ gridColumn: '1 / 3', borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', aspectRatio: '16 / 9' }}>
-              <img src="/images/wood-kitchen.jpg" alt="Wood-effect flooring fitted in a kitchen" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', aspectRatio: '4 / 3' }}>
-              <img src="/images/tartan-landing.jpg" alt="Patterned carpet fitted on a landing" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-            <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', aspectRatio: '4 / 3' }}>
-              <img src="/images/tartan-step-detail.jpg" alt="Stair carpet bullnose detail" loading="eager" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-            </div>
-          </div>
+      <section className="c-wrap" style={{ paddingTop: 96, paddingBottom: 80 }}>
+        <div className="c-eyebrow" style={{ marginBottom: 26 }}>
+          <span className="c-eyebrow-line" /> Carpets &amp; flooring specialists &middot; Bolton
+        </div>
+        <h1 style={{ fontSize: 'clamp(46px, 7vw, 88px)', maxWidth: 900, marginBottom: 30, lineHeight: 1.08 }}>
+          Beautiful floors,<br />
+          <span style={{ fontStyle: 'italic', color: 'var(--text-1)' }}>fitted with care</span>.
+        </h1>
+        <p style={{ fontSize: 19, color: 'var(--accent-deep)', maxWidth: 540, lineHeight: 1.75, marginBottom: 42 }}>
+          From plush wool twists to hard-wearing flooring, Carpets2Go brings quality and craftsmanship to every room across Bolton and Greater Manchester.
+        </p>
+        <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+          <Link href="/collections" className="c-btn c-btn-primary">Explore collections</Link>
+          <Link href="/brochures" className="c-btn c-btn-ghost">View brochures</Link>
         </div>
 
-        {/* Trust strip */}
-        <div style={{ marginTop: 56, paddingTop: 28, borderTop: '1px solid var(--border)', display: 'flex', gap: 48, flexWrap: 'wrap' }}>
+        {/* Trust strip with icon badges */}
+        <div style={{ marginTop: 60, paddingTop: 32, borderTop: '1px solid var(--border)', display: 'flex', gap: 40, flexWrap: 'wrap' }}>
           {[
-            ['Free', 'home visits & quotes'],
-            ['Expert', 'measuring & fitting'],
-            ['Local', 'Bolton, Wigan & Manchester'],
-            ['Trusted', 'brands we stock'],
-          ].map(([big, small]) => (
-            <div key={big}>
-              <div style={{ fontFamily: 'var(--c-serif)', fontSize: 28, color: 'var(--text-1)', lineHeight: 1 }}>{big}</div>
-              <div style={{ fontSize: 13, color: 'var(--text-3)', marginTop: 6 }}>{small}</div>
+            { big: 'Free', small: 'home visits & quotes', icon: (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 11l9-7 9 7M5 10v10h14V10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            )},
+            { big: 'Expert', small: 'measuring & fitting', icon: (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 7l4-4 14 14-4 4L3 7zM7 7l2 2M11 5l2 2M9 11l2 2M13 9l2 2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            )},
+            { big: 'Bolton', small: 'Wigan & Manchester', icon: (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" strokeWidth="1.7"/></svg>
+            )},
+          ].map(item => (
+            <div key={item.big} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+              <div style={{
+                width: 48, height: 48, borderRadius: '50%', flexShrink: 0,
+                background: 'var(--c-red-soft)', border: '1px solid var(--c-red-border)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: 'var(--accent-deep)',
+              }}>{item.icon}</div>
+              <div>
+                <div style={{ fontFamily: 'var(--c-serif)', fontSize: 28, color: 'var(--text-1)', lineHeight: 1 }}>{item.big}</div>
+                <div style={{ fontSize: 13, color: 'var(--accent-deep)', marginTop: 5 }}>{item.small}</div>
+              </div>
             </div>
           ))}
         </div>
