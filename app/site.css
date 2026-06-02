@@ -145,6 +145,10 @@ html { scroll-behavior: smooth; }
 }
 .c-btn-primary { background: var(--c-navy); color: #fff; border: 1px solid var(--c-navy); }
 .c-btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+
+/* Force button text colours over the global `.site a { color: inherit }` rule */
+.site a.c-btn-primary, .site .c-btn-primary { color: #fff; }
+.site a.c-btn-ghost, .site .c-btn-ghost { color: var(--c-navy); }
 .c-btn-ghost { background: #fff; color: var(--c-navy); border: 1px solid var(--c-navy); }
 .c-btn-ghost:hover { background: var(--surface-2); color: var(--c-navy); }
 
