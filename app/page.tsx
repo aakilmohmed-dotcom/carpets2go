@@ -30,7 +30,7 @@ export default function Home() {
           Beautiful floors,<br />
           <span style={{ fontStyle: 'italic', color: 'var(--text-1)' }}>fitted with care</span>.
         </h1>
-        <p style={{ fontSize: 19, color: 'var(--accent-deep)', maxWidth: 540, lineHeight: 1.75, marginBottom: 42 }}>
+        <p style={{ fontSize: 19, color: 'var(--accent)', maxWidth: 540, lineHeight: 1.75, marginBottom: 42 }}>
           From plush wool twists to hard-wearing flooring, Carpets2Go brings quality and craftsmanship to every room across Bolton and Greater Manchester.
         </p>
         <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
@@ -54,13 +54,13 @@ export default function Home() {
             <div key={item.big} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
               <div style={{
                 width: 48, height: 48, borderRadius: '50%', flexShrink: 0,
-                background: 'var(--c-red-soft)', border: '1px solid var(--c-red-border)',
+                background: 'rgba(78,172,234,0.12)', border: '1px solid rgba(78,172,234,0.30)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                color: 'var(--accent-deep)',
+                color: 'var(--accent)',
               }}>{item.icon}</div>
               <div>
                 <div style={{ fontFamily: 'var(--c-serif)', fontSize: 28, color: 'var(--text-1)', lineHeight: 1 }}>{item.big}</div>
-                <div style={{ fontSize: 13, color: 'var(--accent-deep)', marginTop: 5 }}>{item.small}</div>
+                <div style={{ fontSize: 13, color: 'var(--accent)', marginTop: 5 }}>{item.small}</div>
               </div>
             </div>
           ))}
