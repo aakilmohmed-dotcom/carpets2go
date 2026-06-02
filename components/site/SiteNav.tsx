@@ -16,8 +16,8 @@ export default function SiteNav({ theme, onToggleTheme }: { theme: 'dark' | 'lig
   return (
     <>
       <nav className="c-nav">
-        <Link href="/" className="c-nav-logo">
-          <span style={{ color: 'var(--text-1)' }}>Carpets</span><span style={{ color: 'var(--action)' }}>2Go</span>
+        <Link href="/" className="c-nav-logo" style={{ display: 'inline-flex', alignItems: 'center' }}>
+          <img src={theme === 'dark' ? '/images/logo-dark.png' : '/images/logo.png'} alt="Carpets2Go" style={{ height: 42, width: 'auto', display: 'block' }} />
         </Link>
 
         <div className="c-nav-links">

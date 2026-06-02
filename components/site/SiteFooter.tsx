@@ -5,9 +5,7 @@ export default function SiteFooter() {
     <footer className="c-footer">
       <div className="c-wrap" style={{ display: 'flex', flexWrap: 'wrap', gap: 40, justifyContent: 'space-between' }}>
         <div style={{ maxWidth: 300 }}>
-          <div className="c-nav-logo" style={{ fontSize: 24, marginBottom: 12 }}>
-            <span style={{ color: 'var(--text-1)' }}>Carpets</span><span style={{ color: 'var(--action)' }}>2Go</span>
-          </div>
+          <div style={{ marginBottom: 14 }}><img src="/images/logo.png" alt="Carpets2Go" style={{ height: 40, width: 'auto', display: 'block' }} /></div>
           <p style={{ fontSize: 14, color: 'var(--text-3)', lineHeight: 1.7 }}>
             Quality carpets and flooring, delivered with care. Browse our collections and request a free quote.
           </p>
