@@ -162,9 +162,10 @@ html { scroll-behavior: smooth; }
 /* ── RESPONSIVE ── */
 @media (max-width: 860px) {
   .c-nav-links { display: none; }
-  .c-hamburger { display: flex; }
+  .c-hamburger { display: flex; margin-left: 10px; }
   .c-mobile-menu { display: flex; }
   .c-nav-cta.desktop-only { display: none; }
+  .c-theme-btn { margin-left: auto; height: 34px; padding: 0 11px; font-size: 11px; }
   .c-section { padding: 72px 0; }
   .c-wrap { padding: 0 22px; }
 }
