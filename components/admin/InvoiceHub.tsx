@@ -11,36 +11,15 @@ function genNumber() {
 
 const NAVY = '#2D247F', RED = '#CE2D20', BLUE = '#4EACEA'
 
-function generatePDF(inv: any) {
+function invoiceBody(inv: any) {
   const items = (inv.items || []) as LineItem[]
-  const html = `<!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>Invoice ${inv.invoice_number}</title>
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#111;font-size:13px;padding:48px;max-width:720px;margin:0 auto}
-  .logo{font-size:22px;font-weight:700;letter-spacing:-0.02em;color:${NAVY}}
-  .logo span{color:${RED}}
-  .header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px}
-  .inv-number{font-size:20px;font-weight:700;margin-bottom:4px}
-  .meta-row{font-size:12px;color:#666;margin-bottom:2px}
-  .parties{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid #E5E3DD}
-  .party-label{font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:#999;margin-bottom:6px;font-weight:600}
-  .party-name{font-weight:600;font-size:14px;margin-bottom:2px}
-  .party-detail{font-size:12px;color:#666}
-  table{width:100%;border-collapse:collapse;margin-bottom:24px}
-  th{text-align:left;padding:8px 12px;font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#999;border-bottom:1px solid #E5E3DD;font-weight:600;background:#F7F5F0}
-  td{padding:11px 12px;border-bottom:1px solid #F0EDE6;font-size:13px}
-  th:last-child,td:last-child{text-align:right}
-  .totals{margin-left:auto;width:240px}
-  .totals-row{display:flex;justify-content:space-between;padding:4px 0;font-size:13px}
-  .totals-row.total{font-weight:700;font-size:15px;border-top:1px solid #E5E3DD;margin-top:6px;padding-top:10px;color:${NAVY}}
-  @media print{body{padding:24px}}
-</style></head><body>
+  const vatRate = inv.vat_rate ?? (inv.vat > 0 ? 20 : 0)
+  return `<div class="invoice-page">
 <div class="header">
   <div class="logo">Carpets<span>2Go</span></div>
   <div style="text-align:right">
     <div class="inv-number">${inv.invoice_number}</div>
-    <div class="meta-row">Issued: ${inv.issued_date ? format(new Date(inv.issued_date), 'dd MMM yyyy') : '—'}</div>
+    <div class="meta-row">Issued: ${inv.issued_date ? format(new Date(inv.issued_date), 'dd MMM yyyy') : '\u2014'}</div>
     <div class="meta-row">Due: ${inv.due_date ? format(new Date(inv.due_date), 'dd MMM yyyy') : 'On receipt'}</div>
   </div>
 </div>
@@ -49,11 +28,11 @@ function generatePDF(inv: any) {
     <div class="party-label">From</div>
     <div class="party-name">Carpets2Go</div>
     <div class="party-detail">Unit 1, Manchester Rd, Bolton, BL3 2ND</div>
-    <div class="party-detail">01204 775 930 · info@carpets2go.uk.com</div>
+    <div class="party-detail">01204 775 930 \u00b7 info@carpets2go.uk.com</div>
   </div>
   <div>
     <div class="party-label">To</div>
-    <div class="party-name">${inv.client_name || '—'}</div>
+    <div class="party-name">${inv.client_name || '\u2014'}</div>
     ${inv.client_email ? `<div class="party-detail">${inv.client_email}</div>` : ''}
   </div>
 </div>
@@ -70,11 +49,45 @@ function generatePDF(inv: any) {
 </table>
 <div class="totals">
   <div class="totals-row"><span>Subtotal</span><span>£${Number(inv.subtotal||0).toFixed(2)}</span></div>
-  <div class="totals-row"><span>VAT (20%)</span><span>£${Number(inv.vat||0).toFixed(2)}</span></div>
+  <div class="totals-row"><span>VAT (${vatRate}%)</span><span>£${Number(inv.vat||0).toFixed(2)}</span></div>
   <div class="totals-row total"><span>Total due</span><span>£${Number(inv.total||0).toFixed(2)}</span></div>
 </div>
 ${inv.notes ? `<div style="margin-top:40px;padding-top:24px;border-top:1px solid #E5E3DD;font-size:12px;color:#666;line-height:1.6"><strong>Notes</strong><br>${inv.notes}</div>` : ''}
+</div>`
+}
+
+function pdfShell(bodies: string, title: string) {
+  return `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>${title}</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#111;font-size:13px}
+  .invoice-page{max-width:720px;margin:0 auto;padding:48px}
+  .invoice-page + .invoice-page{page-break-before:always}
+  .logo{font-size:22px;font-weight:700;letter-spacing:-0.02em;color:${NAVY}}
+  .logo span{color:${RED}}
+  .header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px}
+  .inv-number{font-size:20px;font-weight:700;margin-bottom:4px}
+  .meta-row{font-size:12px;color:#666;margin-bottom:2px}
+  .parties{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid #E5E3DD}
+  .party-label{font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:#999;margin-bottom:6px;font-weight:600}
+  .party-name{font-weight:600;font-size:14px;margin-bottom:2px}
+  .party-detail{font-size:12px;color:#666}
+  table{width:100%;border-collapse:collapse;margin-bottom:24px}
+  th{text-align:left;padding:8px 12px;font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#999;border-bottom:1px solid #E5E3DD;font-weight:600;background:#F7F5F0}
+  td{padding:11px 12px;border-bottom:1px solid #F0EDE6;font-size:13px}
+  th:last-child,td:last-child{text-align:right}
+  .totals{margin-left:auto;width:240px}
+  .totals-row{display:flex;justify-content:space-between;padding:4px 0;font-size:13px}
+  .totals-row.total{font-weight:700;font-size:15px;border-top:1px solid #E5E3DD;margin-top:6px;padding-top:10px;color:${NAVY}}
+  @media print{.invoice-page{padding:24px}}
+</style></head><body>
+${bodies}
 </body></html>`
+}
+
+function generatePDF(inv: any) {
+  const html = pdfShell(invoiceBody(inv), `Invoice ${inv.invoice_number}`)
   const w = window.open('', '_blank')
   if (w) { w.document.write(html); w.document.close() }
 }
@@ -106,22 +119,28 @@ export default function InvoiceHub({ initialInvoices }: { initialInvoices: any[]
   const [customDue, setCustomDue] = useState('')
   const [notes, setNotes] = useState('')
   const [vatPct, setVatPct] = useState(20)
+  const [totalInput, setTotalInput] = useState('')
 
   // Filters + selection for accountant export
   const [filterVat, setFilterVat] = useState<'all'|'0'|'20'>('all')
   const [filterMonth, setFilterMonth] = useState('all')
   const [selected, setSelected] = useState<Set<string>>(new Set())
+  const [exporting, setExporting] = useState(false)
+  const [exportUrl, setExportUrl] = useState<string | null>(null)
+  const [exportMsg, setExportMsg] = useState('')
 
-  // VAT-inclusive: entered prices already include VAT
-  const total = items.reduce((s, i) => s + (i.qty || 1) * (i.unitPrice || 0), 0)
+  // Total is the typed price (VAT-inclusive); VAT extracted from it
+  const total = parseFloat(totalInput) || 0
   const vatAmt = total * (vatPct / (100 + vatPct))
   const subtotal = total - vatAmt
+  // Sum of any filled-in line costs (for validation)
+  const lineSum = items.reduce((s, i) => s + (i.qty || 1) * (i.unitPrice || 0), 0)
   const dueDate = dueDays === -1 ? customDue : getDueDate(dueDays)
 
   const addItem = () => setItems(p => [...p, { title: '', description: '', qty: 1, unitPrice: 0 }])
   const updItem = (i: number, k: keyof LineItem, v: any) => setItems(p => p.map((it, idx) => idx === i ? { ...it, [k]: v } : it))
   const delItem = (i: number) => setItems(p => p.filter((_, idx) => idx !== i))
-  const resetForm = () => { setClientName(''); setClientEmail(''); setItems([{ title: '', description: '', qty: 1, unitPrice: 0 }]); setDueDays(14); setCustomDue(''); setNotes(''); setVatPct(20) }
+  const resetForm = () => { setClientName(''); setClientEmail(''); setItems([{ title: '', description: '', qty: 1, unitPrice: 0 }]); setDueDays(14); setCustomDue(''); setNotes(''); setVatPct(20); setTotalInput('') }
 
   const openEdit = (inv: any) => {
     setEditingId(inv.id)
@@ -129,6 +148,7 @@ export default function InvoiceHub({ initialInvoices }: { initialInvoices: any[]
     setClientEmail(inv.client_email || '')
     setItems((inv.items && inv.items.length ? inv.items : [{ title: '', description: '', qty: 1, unitPrice: 0 }]))
     setVatPct(inv.vat_rate ?? (inv.vat > 0 ? 20 : 0))
+    setTotalInput(inv.total ? String(inv.total) : '')
     setNotes(inv.notes || '')
     setDueDays(14); setCustomDue(inv.due_date || '')
     setCreating(true)
@@ -136,7 +156,11 @@ export default function InvoiceHub({ initialInvoices }: { initialInvoices: any[]
 
   const saveInvoice = async () => {
     if (!clientName.trim()) { alert('Enter a client name'); return }
-    if (items.every(i => !i.title && !i.unitPrice)) { alert('Add at least one line item'); return }
+    if (total <= 0) { alert('Enter the total cost (including VAT).'); return }
+    if (lineSum > 0 && Math.abs(lineSum - total) > 0.01) {
+      alert(`Your line items add up to £${lineSum.toFixed(2)} but the total is £${total.toFixed(2)}. They must match (or leave line costs blank).`)
+      return
+    }
     setSaving(true)
     if (editingId) {
       const fields = { id: editingId, client_name: clientName, client_email: clientEmail, items, subtotal, vat: vatAmt, vat_rate: vatPct, total, due_date: dueDate || null, notes: notes || null }
@@ -214,29 +238,38 @@ export default function InvoiceHub({ initialInvoices }: { initialInvoices: any[]
     const n = new Set(prev); filtered.forEach(i => n.add(i.id)); return n
   })
 
-  const exportCSV = () => {
+  const startExport = async () => {
     const rows = filtered.filter(i => selected.has(i.id))
     if (rows.length === 0) { alert('Select at least one invoice to export.'); return }
-    const headers = ['Invoice','Issued','Client','Email','Net','VAT rate','VAT amount','Total','Status']
-    const esc = (v: any) => `"${String(v ?? '').replace(/"/g, '""')}"`
-    const lines = rows.map(i => [
-      i.invoice_number,
-      i.issued_date ? format(new Date(i.issued_date), 'dd/MM/yyyy') : '',
-      i.client_name, i.client_email || '',
-      Number(i.subtotal||0).toFixed(2),
-      `${i.vat_rate ?? (i.vat > 0 ? 20 : 0)}%`,
-      Number(i.vat||0).toFixed(2),
-      Number(i.total||0).toFixed(2),
-      i.status,
-    ].map(esc).join(','))
-    const csv = [headers.map(esc).join(','), ...lines].join('\n')
-    const blob = new Blob([csv], { type: 'text/csv' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `carpets2go-invoices-${filterMonth !== 'all' ? filterMonth : 'all'}${filterVat !== 'all' ? '-vat'+filterVat : ''}.csv`
-    a.click(); URL.revokeObjectURL(url)
+    setExporting(true); setExportUrl(null); setExportMsg('Starting export…')
+    try {
+      const res = await fetch('/api/invoices/export', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ids: rows.map(r => r.id) }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Failed to start export')
+      const jobId = data.jobId
+      setExportMsg(`Generating ${rows.length} invoice${rows.length !== 1 ? 's' : ''}…`)
+
+      const poll = async (): Promise<void> => {
+        const r = await fetch(`/api/invoices/export-status?id=${jobId}`)
+        const d = await r.json()
+        if (d.status === 'done') {
+          setExportUrl(d.url); setExportMsg(`Ready — ${d.count} invoice${d.count !== 1 ? 's' : ''}`); setExporting(false)
+        } else if (d.status === 'error') {
+          setExportMsg('Export failed: ' + (d.error || 'unknown')); setExporting(false)
+        } else {
+          setTimeout(poll, 2000)
+        }
+      }
+      setTimeout(poll, 2000)
+    } catch (e: any) {
+      setExportMsg(e.message); setExporting(false)
+    }
   }
+
+
 
   const totalPaid = invoices.filter(i => i.status === 'paid').reduce((s, i) => s + (i.total || 0), 0)
   const totalOut = invoices.filter(i => i.status === 'sent').reduce((s, i) => s + (i.total || 0), 0)
@@ -304,7 +337,12 @@ export default function InvoiceHub({ initialInvoices }: { initialInvoices: any[]
           {monthOptions.map(m => <option key={m} value={m}>{format(new Date(m + '-01'), 'MMMM yyyy')}</option>)}
         </select>
         <span style={{ fontSize: 13, color: 'var(--text-3)' }}>{filtered.length} invoice{filtered.length !== 1 ? 's' : ''} · {selected.size} selected</span>
-        <button onClick={exportCSV} className="c-btn c-btn-ghost" style={{ marginLeft: 'auto' }}>Download CSV for accountant</button>
+        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 12 }}>
+          {exportMsg && <span style={{ fontSize: 12, color: 'var(--text-3)' }}>{exportMsg}</span>}
+          {exportUrl
+            ? <a href={exportUrl} target="_blank" rel="noopener noreferrer" className="c-btn c-btn-cta">Download PDF</a>
+            : <button onClick={startExport} disabled={exporting} className="c-btn c-btn-ghost">{exporting ? 'Generating…' : 'Export selected as PDF'}</button>}
+        </div>
       </div>
 
       {/* Table */}
@@ -395,6 +433,17 @@ export default function InvoiceHub({ initialInvoices }: { initialInvoices: any[]
               </div>
             </div>
             <div style={{ marginBottom: 18 }}><label style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-2)', display: 'block', marginBottom: 6 }}>Notes</label><textarea style={{ ...inputStyle, minHeight: 60, resize: 'vertical' }} value={notes} onChange={e => setNotes(e.target.value)} placeholder="Thank you for your business…" /></div>
+
+            <div style={{ marginBottom: 18 }}>
+              <label style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-2)', display: 'block', marginBottom: 6 }}>Total cost (including VAT) *</label>
+              <div style={{ position: 'relative', maxWidth: 220 }}>
+                <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', fontSize: 16, color: 'var(--text-3)', pointerEvents: 'none' }}>£</span>
+                <input style={{ ...inputStyle, textAlign: 'left', paddingLeft: 26, fontSize: 18, fontWeight: 700 }} type="number" placeholder="0.00" value={totalInput} onChange={e => setTotalInput(e.target.value)} />
+              </div>
+              {lineSum > 0 && Math.abs(lineSum - total) > 0.01 && (
+                <div style={{ fontSize: 12, color: RED, marginTop: 6 }}>Line items add up to £{lineSum.toFixed(2)} — this must match the total.</div>
+              )}
+            </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border)', paddingTop: 16 }}>
               <div style={{ fontSize: 18, fontWeight: 700 }}>Total: <span style={{ fontFamily: 'monospace', color: NAVY }}>£{total.toFixed(2)}</span> <span style={{ fontSize: 12, color: 'var(--text-3)', fontWeight: 400 }}>including {vatPct}% VAT (£{vatAmt.toFixed(2)})</span></div>
               <div style={{ display: 'flex', gap: 10 }}>
