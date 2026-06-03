@@ -147,6 +147,9 @@ html { scroll-behavior: smooth; }
 }
 .c-btn-primary { background: var(--c-navy); color: #fff; border: 1px solid var(--c-navy); }
 .c-btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+.c-btn-cta { background: var(--action); color: #fff; border: 1px solid var(--action); box-shadow: 0 4px 14px rgba(206,45,32,0.28); font-size: 15px; padding: 15px 28px; }
+.site a.c-btn-cta { color: #fff; }
+.c-btn-cta:hover { opacity: 0.94; transform: translateY(-1px); }
 
 /* Force button text colours over the global `.site a { color: inherit }` rule */
 .site a.c-btn-primary, .site .c-btn-primary { color: #fff; }
@@ -174,6 +177,7 @@ html { scroll-behavior: smooth; }
   .c-theme-btn { margin-left: auto; height: 34px; padding: 0 11px; font-size: 11px; }
   .c-section { padding: 72px 0; }
   .c-wrap { padding: 0 22px; }
+  .c-btn { padding: 14px 22px; min-height: 48px; font-size: 15px; }
 }
 
 /* ── Hero: stack on mobile ── */
