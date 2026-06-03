@@ -18,7 +18,7 @@
 
 /* ── LIGHT (default) ── */
 .site[data-theme="light"] {
-  --bg: #FBFBF9;
+  --bg: #FEFEFC;
   --bg-2: #FFFFFF;
   --surface: #FFFFFF;
   --surface-2: #F6F6F3;

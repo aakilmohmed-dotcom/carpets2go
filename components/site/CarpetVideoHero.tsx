@@ -110,7 +110,7 @@ export default function CarpetVideoHero() {
           </div>
 
           {/* Right 1/3 — scroll animation */}
-          <div style={{ position: 'relative', height: '82vh', maxHeight: 760 }}>
+          <div className="cvh-canvas-col" style={{ position: 'relative', height: '94vh', maxHeight: 1000 }}>
             <canvas ref={canvasRef} style={{ width: '100%', height: '100%', display: 'block' }} />
             {pct < 100 && !isMobile && (
               <div style={{ position: 'absolute', bottom: 12, left: 12, fontSize: 11, color: 'var(--text-3)' }}>Loading {pct}%</div>
@@ -122,11 +122,11 @@ export default function CarpetVideoHero() {
       <style>{`
         .cvh-grid {
           max-width: 1180px; margin: 0 auto; padding: 0 32px; width: 100%;
-          display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center;
+          display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: center;
         }
         @media (max-width: 900px) {
           .cvh-grid { grid-template-columns: 1fr; gap: 32px; padding: 60px 22px; }
-          .cvh-grid > div:last-child { height: 50vh !important; }
+          .cvh-canvas-col { display: none !important; }
         }
       `}</style>
     </section>
