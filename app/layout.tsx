@@ -3,6 +3,7 @@ import './site.css'
 import { useState } from 'react'
 import SiteNav from '@/components/site/SiteNav'
 import SiteFooter from '@/components/site/SiteFooter'
+import MobileCTABar from '@/components/site/MobileCTABar'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<'dark' | 'light'>('light')
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SiteNav theme={theme} onToggleTheme={toggle} />
           <main>{children}</main>
           <SiteFooter />
+          <MobileCTABar />
         </div>
       </body>
     </html>

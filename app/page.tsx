@@ -34,9 +34,17 @@ export default function Home() {
         <p style={{ fontSize: 'clamp(17px, 2.2vw, 21px)', color: 'var(--accent)', maxWidth: 560, lineHeight: 1.7, marginBottom: 36 }}>
           Quality carpets, laminate and flooring supplied and fitted across Bolton, Wigan &amp; Greater Manchester. Free home visits, honest advice and expert fitting.
         </p>
-        <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 14 }}>
+        <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 28 }}>
           <a href="/contact" className="c-btn c-btn-cta">Book a free measure</a>
           <a href="tel:+441204775930" className="c-btn c-btn-ghost">Call 01204 775 930</a>
+        </div>
+
+        {/* Hero trust line */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap' }}>
+          <span style={{ color: 'var(--action)', fontSize: 18, letterSpacing: '0.08em' }}>★★★★★</span>
+          <span style={{ fontSize: 14, color: 'var(--text-2)', fontWeight: 500 }}>
+            Rated by local customers &middot; 10+ years &middot; Family-run &middot; Free home visits
+          </span>
         </div>
       </section>
 
@@ -52,6 +60,30 @@ export default function Home() {
             <div key={i} style={{ flex: '1 1 180px', textAlign: 'center' }}>
               <div style={{ fontFamily: 'var(--c-serif)', fontSize: 24, color: i === 0 ? 'var(--action)' : 'var(--text-1)', lineHeight: 1, letterSpacing: i===0 ? '0.05em' : '0' }}>{t.top}</div>
               <div style={{ fontSize: 13, color: 'var(--text-2)', marginTop: 7 }}>{t.bot}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── HOW IT WORKS ── */}
+      <section className="c-wrap c-section-sm">
+        <div className="c-eyebrow" style={{ marginBottom: 14 }}><span className="c-eyebrow-line" /> How it works</div>
+        <h2 style={{ fontSize: 'clamp(30px, 4.5vw, 44px)', maxWidth: 560, marginBottom: 48 }}>Three simple steps to your new floor</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 28 }}>
+          {[
+            { n: '1', t: 'Book a free home visit', d: 'Call us or request a quote. We come to you with samples — no charge, no obligation.' },
+            { n: '2', t: 'Choose your flooring', d: 'Get honest advice and see colours in your own light. We measure up precisely.' },
+            { n: '3', t: 'Expert fitting completed', d: 'Our experienced fitters install your new floor neatly, on time and to a high standard.' },
+          ].map(s => (
+            <div key={s.n} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <div style={{
+                width: 52, height: 52, borderRadius: '50%',
+                background: 'var(--c-red-soft)', border: '1px solid var(--c-red-border)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontFamily: 'var(--c-serif)', fontSize: 24, fontWeight: 700, color: 'var(--accent)',
+              }}>{s.n}</div>
+              <h3 style={{ fontSize: 22, margin: 0 }}>{s.t}</h3>
+              <p style={{ fontSize: 15, color: 'var(--text-2)', lineHeight: 1.65, margin: 0 }}>{s.d}</p>
             </div>
           ))}
         </div>
