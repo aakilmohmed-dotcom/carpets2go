@@ -19,7 +19,7 @@ export default function SiteFooter() {
             <Link href="/brochures" style={{ fontSize: 14, color: 'var(--text-2)' }}>Brochures</Link>
             <Link href="/about" style={{ fontSize: 14, color: 'var(--text-2)' }}>About</Link>
             <Link href="/contact" style={{ fontSize: 14, color: 'var(--text-2)' }}>Contact</Link>
-            <a href="#find-us" style={{ fontSize: 14, color: 'var(--text-2)' }}>Find us</a>
+            <a href="/about#find-us" style={{ fontSize: 14, color: 'var(--text-2)' }}>Find us</a>
           </div>
         </div>
 

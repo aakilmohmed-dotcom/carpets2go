@@ -186,40 +186,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FIND US ── */}
-      <section id="find-us" className="c-wrap c-section">
-        <div className="c-eyebrow" style={{ marginBottom: 14 }}><span className="c-eyebrow-line" /> Find us</div>
-        <h2 style={{ fontSize: 'clamp(32px, 4.5vw, 46px)', maxWidth: 600, marginBottom: 40 }}>
-          Visit our Bolton showroom
-        </h2>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.6fr)', gap: 32, alignItems: 'stretch' }} className="findus-grid">
-          {/* Details */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 22, justifyContent: 'center' }}>
-            <div>
-              <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 8 }}>Address</div>
-              <div style={{ fontSize: 17, color: 'var(--text-1)', lineHeight: 1.6, fontWeight: 500 }}>
-                Unit 1, Manchester Rd<br />Bolton, BL3 2ND
-              </div>
-            </div>
-            <div>
-              <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 8 }}>Call us</div>
-              <a href="tel:+441204775930" style={{ fontSize: 17, color: 'var(--text-1)', fontWeight: 500 }}>01204 775 930</a>
-            </div>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Carpets2Go,+Unit+1,+Manchester+Rd,+Bolton+BL3+2ND" target="_blank" rel="noopener noreferrer" className="c-btn c-btn-primary" style={{ alignSelf: 'flex-start', marginTop: 6 }}>Get directions</a>
-          </div>
-
-          {/* Map */}
-          <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', minHeight: 380 }}>
-            <iframe
-              title="Carpets2Go location"
-              src="https://www.google.com/maps?q=Carpets2Go,+Unit+1,+Manchester+Rd,+Bolton+BL3+2ND&output=embed"
-              width="100%" height="100%" style={{ border: 0, display: 'block', minHeight: 380 }}
-              loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </div>
-      </section>
 
       {/* ── BROCHURE CTA BAND ── */}
       <section className="c-wrap" style={{ paddingBottom: 100 }}>
