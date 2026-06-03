@@ -42,7 +42,10 @@ export default function SiteFooter() {
 
       <div className="c-wrap" style={{ marginTop: 48, paddingTop: 24, borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, fontSize: 13, color: 'var(--text-3)' }}>
         <span>© {new Date().getFullYear()} Carpets2Go. All rights reserved.</span>
-        <a href="https://www.google.com/search?q=Carpets2Go+Bolton" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: 'var(--text-2)' }}>Read our Google reviews →</a>
+        <span style={{ display: 'flex', gap: 18, flexWrap: 'wrap', alignItems: 'center' }}>
+          <a href="https://www.google.com/search?q=Carpets2Go+Bolton" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: 'var(--text-2)' }}>Read our Google reviews →</a>
+          <a href="https://turtletechnologies.co.uk" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: 'var(--text-3)' }}>Powered by Turtle Technologies</a>
+        </span>
       </div>
     </footer>
   )
