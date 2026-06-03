@@ -1,6 +1,7 @@
 'use client'
 import './site.css'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import SiteNav from '@/components/site/SiteNav'
 import SiteFooter from '@/components/site/SiteFooter'
 import MobileCTABar from '@/components/site/MobileCTABar'
@@ -8,6 +9,8 @@ import MobileCTABar from '@/components/site/MobileCTABar'
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<'dark' | 'light'>('light')
   const toggle = () => setTheme(t => (t === 'light' ? 'dark' : 'light'))
+  const pathname = usePathname()
+  const isAdmin = pathname?.startsWith('/admin')
 
   return (
     <html lang="en">
@@ -22,10 +25,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <div className="site" data-theme={theme}>
-          <SiteNav theme={theme} onToggleTheme={toggle} />
+          {!isAdmin && <SiteNav theme={theme} onToggleTheme={toggle} />}
           <main>{children}</main>
-          <SiteFooter />
-          <MobileCTABar />
+          {!isAdmin && <SiteFooter />}
+          {!isAdmin && <MobileCTABar />}
         </div>
       </body>
     </html>
